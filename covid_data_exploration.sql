@@ -15,6 +15,7 @@ FROM
     CovidDeaths
 WHERE location = 'Hungary';
 
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Show what percentage of population got Covid
 SELECT location,
@@ -26,6 +27,7 @@ FROM
     CovidDeaths
 Where location = 'Hungary';
 
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Looking at Countries with Highest Infection Rate compared to Population
 SELECT location,
@@ -38,6 +40,7 @@ GROUP BY location, population
 ORDER BY
     percent_population_infected DESC;
 
+-----------------------------------------------------------------------------------------------------------------------
 
 --Show Countries with the Highest Death Count per Population
 SELECT location,
@@ -49,6 +52,7 @@ GROUP BY location
 ORDER BY
     total_deaths DESC;
 
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Showing continents with the highest death count per population
 SELECT location,
@@ -59,6 +63,7 @@ WHERE continent is not null
 GROUP BY continent
 ORDER BY  total_deaths DESC;
 
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Global numbers
 SELECT date,
@@ -70,7 +75,8 @@ FROM
 GROUP BY
     date
 
-
+-----------------------------------------------------------------------------------------------------------------------
+    
 -- Looking at Total population vs vaccinations
 SELECT dea.continent,
        dea.location,
