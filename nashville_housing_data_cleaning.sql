@@ -24,6 +24,7 @@ WHERE EXISTS (
       AND a.PropertyAddress IS NULL
 );
 
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Breaking out address into individual columns (Address, City, State)
 
@@ -44,7 +45,7 @@ ADD Property_Split_City Nvarchar(255);
 UPDATE housing
 set Property_Split_City = substring(PropertyAddress, charindex(',', PropertyAddress)+1,length(PropertyAddress));
 
-
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Breaking out OwnerAddress into individual columns (Owner_Split_Address, Owner_Split_City, Owner_Split_State)
 
@@ -66,7 +67,7 @@ ADD Owner_Split_State Nvarchar(5);
 UPDATE housing
 SET Owner_split_state = SUBSTR(OwnerAddress, CHARINDEX(', ', OwnerAddress, CHARINDEX(', ', OwnerAddress) + 1) + 2);
 
-
+-----------------------------------------------------------------------------------------------------------------------
 
 -- Change Y and N to Yes and NO in "Sold as Vacant" field
 
@@ -81,7 +82,8 @@ SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
             ELSE SoldAsVacant
             END
 
-
+-----------------------------------------------------------------------------------------------------------------------
+    
 --Remove duplicates
 
 ALTER TABLE housing ADD COLUMN row_number INTEGER;
@@ -111,7 +113,8 @@ Where row_number = 2;
 ALTER TABLE housing
 DROP COLUMN row_number
 
-
+-----------------------------------------------------------------------------------------------------------------------
+    
 -- Delete unused columns
 
 ALTER TABLE housing
