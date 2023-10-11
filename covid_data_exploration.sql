@@ -2,7 +2,8 @@
 select location, date, total_cases, new_cases, total_deaths, population
 from CovidDeaths
 
-
+-----------------------------------------------------------------------------------------------------------------------
+    
 -- Looking at Total Cases vs Total Deaths
 -- Show likelihood of dying if you contracted covid in Hungary
 SELECT
