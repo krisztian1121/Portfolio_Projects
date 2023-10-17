@@ -62,7 +62,7 @@ FROM
     CovidDeaths
 WHERE continent is not null
 GROUP BY continent
-ORDER BY  total_deaths DESC;
+ORDER BY  total_death_count DESC;
 
 -----------------------------------------------------------------------------------------------------------------------
 
